@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">SimplePlanner</string>
+    <string name="date">Date</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="adds">Adds</string>
+    <string name="Viewpager">ViewPager</string>
+    <string name="notes">Notes</string>
+    <string name="calendar">Calendar</string>
+    <string name="Notes">Notes</string>
+</resources>
