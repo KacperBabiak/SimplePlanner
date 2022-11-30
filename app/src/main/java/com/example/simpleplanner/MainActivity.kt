@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.ViewPager
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
 
 
     private lateinit var pager: ViewPager // creating object of ViewPager
+    val fragmentManager : FragmentManager = supportFragmentManager
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,7 +65,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    fun doSomething(){}
 
 
 }
