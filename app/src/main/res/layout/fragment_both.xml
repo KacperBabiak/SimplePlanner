@@ -13,15 +13,29 @@
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecyclerViewDaysBoth"
-        android:layout_width="fill_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.5"
-        android:clipToPadding="false"
-        android:paddingBottom="60dp"
-        android:orientation="vertical"
-        android:nestedScrollingEnabled="true"
-        />
+    <ViewSwitcher
+        android:id="@+id/viewSwitcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewDaysBoth"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+
+            android:clipToPadding="false"
+            android:paddingBottom="60dp"
+            android:orientation="vertical"
+            android:nestedScrollingEnabled="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text = "@string/dupsko"
+            />
+    </ViewSwitcher>
+
 
 </LinearLayout>

@@ -5,6 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.View.OnTouchListener
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ViewSwitcher
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -46,6 +48,8 @@ class BothFragment : Fragment() {
 
         recTasks.adapter = RecyclerTasksAdapter(tasksList!!)
         recTasks.layoutManager = LinearLayoutManager(context)
+
+        setupViewSwitcher()
     }
 
     fun createDays(): List<Days> {
@@ -82,5 +86,21 @@ class BothFragment : Fragment() {
 
         return list
     }
+
+    private fun setupViewSwitcher() {
+        val viewSwitcher = view?.findViewById<ViewSwitcher>(R.id.viewSwitcher)
+        val inAnim = AnimationUtils.loadAnimation(context, android.R.anim.slide_in_left)
+        if (viewSwitcher != null) {
+            viewSwitcher.inAnimation = inAnim
+        }
+
+        val out = AnimationUtils.loadAnimation(context, android.R.anim.slide_out_right)
+        if (viewSwitcher != null) {
+            viewSwitcher.outAnimation = out
+        }
+
+
+    }
+
 
 }
