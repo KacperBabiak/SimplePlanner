@@ -1,33 +1,32 @@
 package com.example.simpleplanner.Adapters
 
 import android.content.Context
-import android.os.Binder
-import android.renderscript.ScriptGroup
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.ViewSwitcher
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleplanner.DataClasses.Days
 import com.example.simpleplanner.DataClasses.Tasks
 import com.example.simpleplanner.R
-import com.example.simpleplanner.databinding.FragmentBothBinding
 
 
-class RecyclerDayAdapter (private var dataSet: List<Days>) :
+class RecyclerDayAdapter(private var dataSet: List<Days>, var switcher: ViewSwitcher?) :
     RecyclerView.Adapter<RecyclerDayAdapter.ViewHolder>(){
 
     var  tasksList : List<Tasks> ?= null
-    lateinit var binding : FragmentBothBinding
+
+     var switch: ViewSwitcher? = switcher
 
     //creates and inflates view
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).
         inflate(R.layout.day,parent,false)
 
-        binding = FragmentBothBinding.inflate(LayoutInflater.from(parent.context))
+
+
 
         return ViewHolder(view)
 
@@ -45,11 +44,11 @@ class RecyclerDayAdapter (private var dataSet: List<Days>) :
 
             if(holder.rec.visibility == android.view.View.GONE){
                 holder.rec.visibility = android.view.View.VISIBLE
-                binding.viewSwitcher.showNext()
+                switch?.showNext()
             }
             else{
                 holder.rec.visibility = android.view.View.GONE
-                binding.viewSwitcher.showNext()
+                switch?.showNext()
             }
 
 

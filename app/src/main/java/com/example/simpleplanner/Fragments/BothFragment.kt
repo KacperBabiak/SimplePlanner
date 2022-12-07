@@ -3,7 +3,6 @@ package com.example.simpleplanner.Fragments
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
-import android.view.View.OnTouchListener
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ViewSwitcher
@@ -15,6 +14,7 @@ import com.example.simpleplanner.Adapters.RecyclerTasksAdapter
 import com.example.simpleplanner.DataClasses.Days
 import com.example.simpleplanner.DataClasses.Tasks
 import com.example.simpleplanner.R
+import com.google.android.material.chip.Chip
 import java.text.SimpleDateFormat
 
 
@@ -42,7 +42,7 @@ class BothFragment : Fragment() {
         tasksList = createTasks()
 
         //configures recyclers, theirs adapters and layout managers
-        recDays.adapter = RecyclerDayAdapter(daysList!!)
+        recDays.adapter = RecyclerDayAdapter(daysList!!,view.findViewById(R.id.viewSwitcher))
         recDays.layoutManager = LinearLayoutManager(context)
 
 
@@ -50,6 +50,28 @@ class BothFragment : Fragment() {
         recTasks.layoutManager = LinearLayoutManager(context)
 
         setupViewSwitcher()
+
+
+        val chipTasks: Chip = view.findViewById(R.id.chipTask)
+        val chipDays: Chip = view.findViewById(R.id.chipDays)
+
+        chipDays.setOnClickListener{
+            if(recDays.visibility==View.VISIBLE){
+                recDays.visibility=View.GONE
+            }
+            else{
+                recDays.visibility=View.VISIBLE
+            }
+        }
+
+        chipTasks.setOnClickListener{
+            if(recTasks.visibility==View.VISIBLE){
+                recTasks.visibility=View.GONE
+            }
+            else{
+                recTasks.visibility=View.VISIBLE
+            }
+        }
     }
 
     fun createDays(): List<Days> {

@@ -9,4 +9,8 @@
     <string name="calendar">Calendar</string>
     <string name="Notes">Notes</string>
     <string name="dupsko">dupsko</string>
+    <string name="switcher">Switch</string>
+    <string name="slider">slider</string>
+    <string name="tasks">Tasks</string>
+    <string name="days">Days</string>
 </resources>

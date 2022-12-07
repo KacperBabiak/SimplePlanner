@@ -1,8 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="horizontal">
+
+
+    <LinearLayout
+        android:id="@+id/chipLinear"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/border"
+        android:contentDescription="@string/dupsko"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+
+        >
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/tasks"
+            android:textAlignment="center"
+            />
+
+        <Space
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            />
+
+        <com.google.android.material.chip.Chip
+            style="@style/Widget.MaterialComponents.Chip.Filter"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/days"
+            android:textAlignment="center"/>
+
+
+    </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -20,6 +56,7 @@
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/chipLinear"
         android:contentDescription="@string/Viewpager">
 
     </androidx.viewpager.widget.ViewPager>

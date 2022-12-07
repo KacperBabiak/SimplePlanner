@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleplanner.Adapters.RecyclerDayAdapter
-import com.example.simpleplanner.Adapters.RecyclerTasksAdapter
 import com.example.simpleplanner.DataClasses.Days
 import com.example.simpleplanner.R
 import java.text.SimpleDateFormat
@@ -35,7 +34,7 @@ class DaysFragment : Fragment() {
 
 
         //configures recyclers, theirs adapters and layout managers
-        recDays.adapter = RecyclerDayAdapter(daysList!!)
+        recDays.adapter = RecyclerDayAdapter(daysList!!,null)
         recDays.layoutManager = LinearLayoutManager(context)
 
 
