@@ -13,7 +13,8 @@ import com.example.simpleplanner.DataClasses.Tasks
 import com.example.simpleplanner.R
 
 
-class RecyclerDayAdapter(private var dataSet: List<Days>, var switcher: ViewSwitcher?) :
+class RecyclerDayAdapter(private var dataSet: List<Days>, var switcher: ViewSwitcher?,
+var switchedText: TextView) :
     RecyclerView.Adapter<RecyclerDayAdapter.ViewHolder>(){
 
     var  tasksList : List<Tasks> ?= null
@@ -39,19 +40,12 @@ class RecyclerDayAdapter(private var dataSet: List<Days>, var switcher: ViewSwit
 
 
         holder.dateText.setOnClickListener {
+            switch?.showNext()
+        }
 
 
-
-            if(holder.rec.visibility == android.view.View.GONE){
-                holder.rec.visibility = android.view.View.VISIBLE
-                switch?.showNext()
-            }
-            else{
-                holder.rec.visibility = android.view.View.GONE
-                switch?.showNext()
-            }
-
-
+        switchedText.setOnClickListener {
+            switch?.showNext()
         }
 
         tasksList = createTasks()

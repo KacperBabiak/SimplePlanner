@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    android:background="@color/black">
 
 
     <LinearLayout
@@ -18,11 +19,13 @@
         >
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipTask"
             style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/tasks"
             android:textAlignment="center"
+            android:checked="true"
             />
 
         <Space
@@ -31,11 +34,13 @@
             />
 
         <com.google.android.material.chip.Chip
+            android:id="@+id/chipDays"
             style="@style/Widget.MaterialComponents.Chip.Filter"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:text="@string/days"
-            android:textAlignment="center"/>
+            android:textAlignment="center"
+            android:checked="true"/>
 
 
     </LinearLayout>
@@ -52,14 +57,51 @@
         android:src="@android:drawable/ic_input_add"
         android:textAlignment="center" />
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/chipLinear"
-        android:contentDescription="@string/Viewpager">
+        android:orientation="horizontal">
 
-    </androidx.viewpager.widget.ViewPager>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerViewTasks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
 
+        <ViewSwitcher
+            android:id="@+id/viewSwitcher"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/RecyclerViewDays"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+
+                android:clipToPadding="false"
+                android:nestedScrollingEnabled="true"
+                android:orientation="vertical"
+                android:paddingBottom="60dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:id="@+id/textSwitched"
+                android:layout_height="match_parent"
+                android:text="@string/dupsko"
+                android:visibility="visible"
+                android:background="@drawable/border"/>
+
+
+
+        </ViewSwitcher>
+
+
+
+    </LinearLayout>
 
 </RelativeLayout>
