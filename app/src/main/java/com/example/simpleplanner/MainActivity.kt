@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import android.widget.ViewSwitcher
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simpleplanner.Adapters.RecyclerDayAdapter
@@ -25,6 +26,9 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var recDays :RecyclerView
     lateinit var recTasks :RecyclerView
+    lateinit var param : LinearLayout.LayoutParams
+    lateinit var param2 : LinearLayout.LayoutParams
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +37,16 @@ class MainActivity : AppCompatActivity() {
         configureRecyclers()
         setupViewSwitcher()
         configureChips()
+
+        param = LinearLayout.LayoutParams(
+            RecyclerView.LayoutParams.FILL_PARENT,
+            RecyclerView.LayoutParams.MATCH_PARENT,
+            0.5f)
+
+        param2 = LinearLayout.LayoutParams(
+            0,
+            RecyclerView.LayoutParams.MATCH_PARENT,
+            0.5f)
     }
 
 
@@ -133,9 +147,14 @@ class MainActivity : AppCompatActivity() {
         chipDays.setOnClickListener{
             if(recDays.visibility==View.VISIBLE){
                 recDays.visibility=View.GONE
+
+                recTasks.setLayoutParams(param)
+
             }
             else{
                 recDays.visibility=View.VISIBLE
+                recTasks.setLayoutParams(param2)
+
             }
         }
 

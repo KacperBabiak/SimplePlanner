@@ -65,6 +65,7 @@
         android:layout_below="@id/chipLinear"
         android:orientation="horizontal">
 
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/RecyclerViewTasks"
             android:layout_width="0dp"
